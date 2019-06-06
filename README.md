@@ -1,2 +1,4 @@
-#项目信息
-管理人员：刘涛
+![picture](https://github.com/lt910702lt/my_picture/blob/master/323029.jpg)
+
+
+
