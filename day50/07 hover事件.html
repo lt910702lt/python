@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>hover购物车</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .menu {
+            height: 50px;
+            width: 100%;
+            background-color: #0f0f0f;
+            color: darkgrey;
+        }
+        .menu>ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        .menu>ul>li {
+            float: left;
+            line-height: 50px;
+            margin-right: 15px;
+            position: relative;
+        }
+        .shopcar {
+            background-color: red;
+            color: white;
+            /*height: 50px;*/
+            /*width: 200px;*/
+            position: absolute;
+            right: 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="menu">
+    <ul>
+        <li>登陆</li>
+        <li>注册</li>
+        <li class="cart">购物车
+        <div class="shopcar">
+            你的购物车是空的！！
+        </div>
+        </li>
+    </ul>
+</div>
+<script src="jquery-3.4.1-main.js"></script>
+<script>
+    $(".cart").hover(
+        //鼠标移进来
+        function () {
+            $(".shopcar").css("display","block");
+    },
+        //鼠标移出去
+        function () {
+            $(".shopcar").css("display","none");
+    });
+</script>
+</body>
+</html>

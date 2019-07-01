@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>今日作业</title>
+    <style>
+        /*设置弹出框时，页面的样式*/
+        .cover {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: rgba(0,0,0,0.2);
+            z-index: 99;
+        }
+        .modal {
+            width: 300px;
+            height: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -350px;
+            margin-top: -200px;
+            background-color: white;
+            z-index: 100;
+            background-color: rgba(0,0,0,0.2);
+        }
+        .hide {
+            display: none;
+        }
+
+    /*设置弹出框的样式*/
+    </style>
+
+
+</head>
+<body>
+<!--新增按钮-->
+<button id="b1">新增</button>
+<!--设置一个序号的全局变量-->
+<!--设置初始表格内容-->
+<table border="1">
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>姓名</th>
+        <th>爱好</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="number">1</td>
+        <td class="name">宋江</td>
+        <td class="nickname">及时雨</td>
+        <td>
+            <button class="edit">编辑</button>
+            <button class="delete">移除</button>
+        </td>
+    </tr>
+    <tr>
+        <td class="number">2</td>
+        <td class="name">吴用</td>
+        <td class="nickname">智多星</td>
+        <td>
+            <button class="edit">编辑</button>
+            <button class="delete">移除</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<!--设置一个大的div，其他应该都包含在这个div中-->
+<div id="d1" class="cover hide"></div>
+<!--添加一个弹框-->
+<div id="d2" class="modal">
+    <div>
+        <span>姓名:<input type="text" class="newname"></span>
+    </div>
+    <div>
+        <span>别名:<input type="text" class="newnickname"></span>
+    </div>
+    <input type="submit" id="i1">
+    <button>取消</button>
+</div>
+<!--加载jQuery-->
+<script src="jquery-3.4.1-main.js"></script>
+<!--编写java script内容-->
+<script>
+    //一、点击新增按钮，新增一条记录(先简单实现)
+    //1. 定义按钮点击触发事件
+    $("#b1").click(function () {
+        //2.增加一条tr记录
+        var tEle = document.createElement("tr");
+        //3.为新的tr添加记录
+        tEle.innerHTML = `
+            <td class="number">3</td>
+            <td class="name">鲁智深</td>
+            <td class="nickname">花和尚</td>
+            <td>
+                <button class="edit">编辑</button>
+                <button class="delete">移除</button>
+            </td>
+        `;
+        //4.将新的tr记录插入到表中
+        $("table").append(tEle);
+    });
+
+    //实现编辑功能
+
+    //二、实现移除功能(要使用事件委托来实现)
+    // $(".delete").click(function () {
+    //     $(this).parent().parent().remove();
+    // });
+    $("table").on("click",".delete",function () {
+        $(this).parent().parent().remove();
+    });
+    
+    //三、绑定提交按钮，获取两个文本框的数据
+    //定义两个变量来接收文本框的数据
+    function getTextDate() {
+        var newName = "";
+        var newNickName = "";
+        $("#i1").click(function () {
+            newName = $(".newname").val();
+            newNickName = $(".newnickname").val();
+        });
+        return newName,newNickName
+    }
+
+    
+</script>
+</body>
+</html>

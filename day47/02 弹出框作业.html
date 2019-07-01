@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>02 弹出框作业</title>
+    <style>
+        .cover {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.2);
+            z-index: 99;
+        }
+        .modal {
+            width: 700px;
+            height: 400px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -350px;
+            margin-top: -200px;
+            background-color: white;
+            z-index: 100;
+        }
+        .close {
+            float: right;
+            margin-right: 15px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<button id="b1">点我弹出</button>
+<div class="cover hide"></div>
+<div class="modal hide">
+    <span id="s1" class="close">x</span>
+</div>
+
+<script>
+    var b1Ele = document.getElementById("b1");
+    var d1Ele = document.getElementsByClassName("cover");
+    var d2Ele = document.getElementsByClassName("modal");
+    b1Ele.onclick = function (ev) {
+        d1Ele[0].classList.remove("hide");
+        d2Ele[0].classList.remove("hide");
+    }
+    var s1Ele = document.getElementById("s1");
+    s1Ele.onclick = function (ev) {
+        d1Ele[0].classList.add("hide");
+        d2Ele[0].classList.add("hide");
+    }
+</script>
+</body>
+</html>

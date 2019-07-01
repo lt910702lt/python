@@ -1,0 +1,68 @@
+一、昨日内容回顾
+    1、HTML
+        1、HTML结构
+        2、标签
+            a. 块儿级标签
+                h1-h6
+                p
+                div
+                hr
+                ol>li
+                ul>li
+                table>tr
+            b. 内联标签/行内标签
+                a
+                span
+                input
+                img
+                b、i、u、s
+            c. 嵌套规则
+                1. 标签之间可以嵌套（块级标签可以包内联标签）
+                2. p标签不能报p标签和div标签
+            d. 获取用户输入的标签
+                1. form标签 -- 注意不是from
+                    action --> 控制往哪里提交数据
+                    method --> get/post，HTTP请求的两种方法
+                    enctype --> 当form表单中有文件类型的数据需要上传时
+                        multipart/form-data
+
+                2. input标签
+                    I. type类型
+                        text
+                            - placeholder设置提示语句
+                        password
+                        email
+                        date
+                            - 通过value属性设置输入框的默认值
+
+                        checkbox
+                        redio
+                            - 通过value属性设置输入框的默认值
+                            - 通过checked属性默认选中
+
+                        submit  --> 提交
+                        button  --> 普通按钮，多用js去代码去绑定事件
+                        reset   --> 将当前form表单中的输入内容重置
+
+                        file
+                    II. name属性
+
+
+                3. select
+                    - multiple = multiple -- > 简写multiple
+                    - 内部包含option
+                        - 设置value属性
+                    - 通过selected属性设置默认选中
+                    - 分组的select
+
+                4. textarea
+                    - cols = 列数
+                    - rows = 行数
+                    - name属性
+                5. label
+二、CSS
+2.1 CSS选择器
+2.2 CSS属性
+    1、宽和高
+    2、字体、字体大小
+    3、粗细

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>全选、反选和取消</title>
+</head>
+<body>
+<table border="1">
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>姓名</th>
+        <th>爱好</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>嘤嘤</td>
+        <td>用手</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>康神</td>
+        <td>用脚</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>黄袍哥</td>
+        <td>萝莉</td>
+    </tr>
+    </tbody>
+</table>
+<hr>
+<button id="b1">全选</button>
+<button id="b2">反选</button>
+<button id="b3">取消</button>
+<script src="jquery-3.4.1-main.js"></script>
+<script>
+    //全选
+    $("#b1").click(function () {
+       // 找到所有的checkbox，选中：prop("checked",true)
+        $(":checkbox").prop("checked",true);
+    });
+    //取消
+    $("#b3").click(function () {
+        //找到所有的checkbox，选中:prop("checked",false)
+        $(":checkbox").prop("checked",false);
+    });
+    //反选
+    $("#b2").click(function () {
+       //找到所有选中的checkbox,取消选中；同时找到所有没选中的checkbox，选中
+       //找到所有的checkbox
+        var $check =  $(":checkbox");
+        for (var i=0;i<$check.length;i++){
+            var tmp = $check[i];
+            var s = $(tmp).prop("checked");
+            // 如果s是true就改成false，如果是false就改成true(直接取反)
+            // if (s) {
+            //     $(tmp).prop("checked",false);
+            // }else {
+            //     $(tmp).prop("checked",true);
+            // }
+            // 直接取反代码！
+            $(tmp).prop("checked",!s);
+        }
+
+    });
+</script>
+</body>
+</html>

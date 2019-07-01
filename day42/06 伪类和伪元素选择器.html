@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>伪类和伪元素选择器</title>
+</head>
+    <style>
+        /*伪类选择器*/
+        a:link {color: red}
+        a:visited {color: green}
+        a:hover {color: blue}
+
+        input:focus {
+            border: 1px solid deeppink;
+            background-color: #eee;
+        }
+        /*伪元素选择器*/
+        /*语句的第一个字变红*/
+        p:first-letter {color: red}
+        p:before {
+            content: "*";
+            color: red;
+        }
+        p:after {
+            content: '--';
+            color: green;
+        }
+    </style>
+<body>
+
+<a href="http://www.abc.com">abc</a>
+<a href="http://www.luffycity.com">路飞学城</a>
+
+<hr>
+<input type="text">
+
+<hr>
+<p>跟老男孩学Linux运维</p>
+</body>
+</html>

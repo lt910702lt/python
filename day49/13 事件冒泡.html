@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>事件冒泡</title>
+</head>
+<body>
+<div id="d1">
+    <p id="p1">
+        <span id="s1">span</span>
+    </p>
+</div>
+<script src="jquery-3.4.1-main.js"></script>
+<script>
+    $("#d1").click(function () {
+        alert("div");
+    });
+    $("#p1").click(function () {
+        alert("ppp")
+    });
+    $("#s1").click(function (e) {
+        alert("span")
+        //阻止事件向上级传递
+        e.stopPropagation();
+    });
+</script>
+</body>
+</html>

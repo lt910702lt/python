@@ -1,0 +1,44 @@
+一、内容回顾
+    1. 今日面试题
+    2. 昨日内容
+        a. 文档操作
+            添加HTML元素到文档树中
+            * 内部添加
+                1. 前面加
+                    prepend()
+                    prependTo()
+                2. 后面加
+                    append()
+                    appendTo()
+            * 外部添加
+                1. 前面加
+                    before()
+                    insertBefore()
+                2. 后面加
+                    after()
+                    insertAfter()
+            * 删除
+                remove()
+            * 清空
+                empty()
+            * 替换
+                replaceWith()
+                replaveAll()
+            * 克隆
+                clone()/clone(true)
+        b. 事件
+            1. DOM绑定事件的方式
+                onclick = f()
+                DOM对象.onclick=function(){...}
+            2. jQuery绑定事件的方式
+                $("").click(function(){...});
+                $("").on("click","子选择器",function(){...})    --> 事件委托    --> 原理是事件冒泡
+        c. 作业讲解
+            使用事件委托给未来标签绑定事件
+二、今日内容
+    1. 阻止事件冒泡
+        e.stopPropagation()
+    2. 阻止默认事件执行（通常用于阻止form表单的提交）
+        e.preventDefault()
+    3. 阻止后续事件的执行
+        return false

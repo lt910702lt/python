@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>测试</title>
+    <style>
+        /*p {color: red}*/
+        /*#p1 {color: red}*/
+        /*.p3 {color: red}*/
+        /** {color: red}*/
+
+        /*div span {color: red}*/
+        /*div>span {color: red}*/
+        /*div+p {color: red}*/
+        /*div~p {color: red}*/
+
+        /*p[s14] {color: red}*/
+        /*[s14] {color: red}*/
+
+
+        /*span,*/
+        /*p {color: red}*/
+
+        .p2 p {color: red}
+
+
+    </style>
+</head>
+<body>
+
+<div id="d1" class="p3">div</div>
+
+<p id="p1" class="p1 p2 p3">p1</p>
+<p id="p2" class="p2 p3">p2</p>
+<p id="p3" class="p3">p3</p>
+
+<hr>
+<div>
+    <div>
+        <span>span1</span>
+        <p>
+            <span>span2</span>
+        </p>
+    </div>
+</div>
+<span>span外部</span>
+<p>p外部</p>
+
+<hr>
+
+<div>
+    <div>
+        <span s14="shuxing">span1</span>
+        <p>
+            <span>span2</span>
+        </p>
+    </div>
+</div>
+<span>span外部</span>
+<p s14="shuxing1">p属性1</p>
+<p s14="shuxing2">p属性2</p>
+</body>
+</html>

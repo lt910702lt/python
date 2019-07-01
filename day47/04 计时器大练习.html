@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>计时器练习</title>
+</head>
+<body>
+<input type="text" id="i1">
+<button id="b1">开始</button>
+<button id="b2">结束</button>
+<script>
+    var i1Ele = document.getElementById("i1");
+    var t;
+    // 获取时间并写入文本框
+    function f() {
+        var now = new Date();
+        i1Ele.value=now.toLocaleString();
+    }
+    // 给开始按钮绑定事件
+    var b1Ele = document.getElementById("b1");
+    b1Ele.onclick=function (ev) {
+        if (!t){
+            t = setInterval(f,1000)
+        }
+    }
+    //给结束按钮绑定事件
+    var b2Ele = document.getElementById("b2");
+    b2Ele.onclick=function (ev) {
+        clearInterval(t)
+        t=null;
+    }
+
+</script>
+</body>
+</html>

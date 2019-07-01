@@ -1,0 +1,80 @@
+一、内容回顾
+    1. JQuery是什么？
+        一个js插件
+    2. jQuery使用
+        a. jQuery版本
+            * 版本号 1.x/2.x/3.x
+                1.x 兼容IE6/7/8
+                2.x 用的少
+                3.x 最新
+            * jQuery.mian.js
+        b. jQuery的导入
+            * 先导入后使用
+            * 导入方式： ********
+                1. 自己下载到本地
+                2. 使用CDN方式
+        c. jQuery的调用
+            $
+            jQuery
+        d. jQuery对象和DOM对象
+            1. 注意事项
+                方法调用要对应
+            2. 互相转换     ********
+                1. jQuery对象 --> DOM对象   加索引
+                    $("div") > $("div")[0]
+                2. DOM对象 --> jQuery对象   $包起来
+                    this > $(this)
+        5. jQuery语法
+            $("选择器").方法()
+            支持链式操作
+        6. jQuery选择器
+            a. 基本选择器 ***
+                $("div")
+                $("#d1")
+                $(".c1")
+                $("*")
+            b. 组合选择器 ***
+                $("div, .c1")
+            c. 层级选择器 ***
+                $("#d1 span")   后代
+                $("#d1>span")   儿子
+                $("#d1+span")   毗邻
+                $("#d1~span")   兄弟（下面）
+            d. 基本筛选器
+                :first/:last
+                :eq()/:gt()/:lt()
+                :even/:odd
+                $("div:not(.c1)")
+                $("div:has(.c1)")   ***在div标签的后代里面匹配
+            e. 属性选择器
+                $("[s14]")
+                $("[s14='text']")
+                $("[s14!='text']")
+            f. 表单筛选器
+                $(":text")
+                $(":password")
+                ...
+                $(":disabled")
+                $("input:checked")
+                $("selected")
+            g. 筛选器方法  ***
+                .first()/.last()
+                .not()/.has()
+                .eq()
+                .next()/.prev()
+                .parent()/.children()/.siblings()
+                .find('选择器条件')
+                .filter('选择器条件')
+        7. jQuery操作样式
+            1. 操作class
+                .addClass()
+                .removeClass()
+                .hasClass()
+                .toggleClass()
+            2. 操作CSS
+
+
+
+
+
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>取反练习再出发</title>
+</head>
+<body>
+<table border="1">
+    <thead>
+    <tr>
+        <th>勾选</th>
+        <th>姓名</th>
+        <th>外号</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>宋江</td>
+        <td>及时雨</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>吴用</td>
+        <td>智多星</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>林冲</td>
+        <td>豹子头</td>
+    </tr>
+    </tbody>
+</table>
+<button id="b1">全选</button>
+<button id="b2">反选</button>
+<button id="b3">取消</button>
+
+<script src="jquery-3.4.1-main.js"></script>
+<script>
+    $("#b1").click(function () {
+        $(":checkbox").prop("checked", true);
+    });
+
+    $("#b3").click(function () {
+        $(":checkbox").prop("checked", false);
+    });
+
+    $("#b2").click(function () {
+        $(":checkbox").each(function () {
+            // var value = $(this).prop("checked");
+            // $(this).prop("checked", !value);
+            $(this).prop("checked",!$(this).prop("checked"));
+        });
+    });
+
+</script>
+
+</body>
+</html>

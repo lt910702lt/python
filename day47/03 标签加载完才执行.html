@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>页面加载完才执行</title>
+    <script>
+        window.onload=function (ev) {
+            var d1Ele = document.getElementById("d1");
+            var s = d1Ele.innerText;
+            alert(s)
+        }
+    </script>
+</head>
+<body>
+<div id="d1">我是div</div>
+<!--<script>-->
+<!--    var d1Ele = document.getElementById("d1");-->
+<!--    var s = d1Ele.innerText;-->
+<!--    alert(s)-->
+<!--</script>-->
+</body>
+</html>

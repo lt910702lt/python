@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>作业</title>
+</head>
+<body>
+<button id="b1">点我添加</button>
+<table border="1">
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>昵称</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>宋江</td>
+        <td>及时雨</td>
+        <td>
+            <button class="delete">移除</button>
+        </td>
+    </tr>
+    <tr>
+        <td>吴用</td>
+        <td>智多星</td>
+        <td>
+            <button class="delete">移除</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<script src="jquery-3.4.1-main.js"></script>
+<script>
+    //给点击添加绑定事件
+    $("#b1").click(function () {
+        //添加一行固定的表格内容
+        var tmp = document.createElement("tr");
+        tmp.innerHTML = `
+            <td>鲁智深</td>
+            <td>花和尚</td>
+            <td>
+                <button class="delete">移除</button>
+            </td>
+        `;
+        //添加一行内容
+        $("tbody").append(tmp);
+    });
+
+    //删除当前的标签(只能找打之前的，未来标签则没有)
+    // $(".delete").click(function () {
+    //     $(this).parent().parent().remove();
+    // });
+
+    //通过事件委托，给未来标签也绑定删除属性
+    $("table").on("click",".delete",function () {
+        $(this).parent().parent().remove();
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+/*这是blog页面的css文件*/
+/*去掉默认body格式*/
+body {
+    margin: 0;
+}
+
+/*去掉链接的下划线*/
+a {
+    text-decoration: none;
+}
+
+/*去掉ul标签的默认样式*/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*blog左侧样式区*/
+.left {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #4d4d4d;
+    width: 20%;
+    height: 100%;
+}
+/*头像*/
+.avatar {
+    height: 100px;
+    width: 100px;
+    border: 3px solid white;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 20px auto;
+
+}
+.avatar>img {
+    width: 100%;
+}
+
+/*blog标题*/
+.blog-title {
+    text-align: center;
+    color: rgb(238,238,238);
+    font-weight: bold;
+}
+
+/*blog的简介*/
+.blog-info {
+    text-align: center;
+    margin: 25px 0;
+    font-size: 12px;
+    color: rgb(238,238,238);
+}
+
+/*blog链接和标签*/
+.blog-link li,
+.blog-tag li {
+
+    text-align: center;
+}
+.blog-link a,
+.blog-tag a {
+    color: rgb(136,136,136);
+    font-size: 14px;
+}
+.blog-tag {
+    margin-top: 15px;
+}
+/*鼠标移上去颜色变量*/
+.blog-link a:hover,
+.blog-tag a:hover {
+    color: white;
+
+}
+
+/*右侧样式区*/
+.right {
+    width: 80%;
+    float: right;
+    background-color: #eee;
+}
+
+/*给文章列表设置样式*/
+.article-list {
+    margin: 20px 10% 0 20px;
+}
+
+/*文章*/
+.article {
+    background-color: white;
+}
+.article:hover {
+    box-shadow: 0 3px 6px;
+    transition: all 200ms linear;
+    transform: translate3d(0,-3px,0);
+}
+
+/*文章顶部*/
+.article-date {
+    float: right;
+    font-size: 16px;
+    font-weight: normal;
+}
+.article-title {
+    border-left: 5px solid darkred;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 15px 20px;
+}
+
+/*文章中间部分*/
+.article-middle {
+    padding: 10px 20px;
+}
+/*文章的底部*/
+.article-bottom {
+    border-top: 1px solid lightgray;
+    margin: 0 20px;
+    padding: 15px 0;
+}
+.article-bottom>span {
+   font-size: 12px;
+}

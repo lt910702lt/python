@@ -1,0 +1,68 @@
+一、作业讲解
+    1. 登陆验证
+    2. 全选、反选和取消
+二、昨日内容回顾
+    1. 操作样式
+        a. 操作class
+        b. 操作CSS
+            $("").css("color") --> 获取选中标签的颜色。
+                1. 如果选择器找到多个对象，取值默认返回第一个标签的值；
+                2. 设置值是设置所有的标签
+    2. 位置操作
+        a. position()
+        b. offset()
+        c. scrollTop()
+        d. scrollLeft()
+    3. 尺寸操作
+        a. width/height             元素
+        b. innerHeight/innerwidth   元素+内填充
+        c. outerHerght/outerwidth   元素+内填充+边框
+    4. 文本操作
+        a. text()
+        b. html()
+    5. 求值（input/select/textarea）
+        a. .val()
+        b. .val("新值")
+        c. .val("[1,2]")
+    6. 属性操作
+        a. attr
+        b. prop
+
+三、今日内容
+    1. 文档操作
+        创建标签使用: document.createElement("div");
+        a. 内部添加
+            * 前面加
+                $(A).prepend(B)
+                $(A).prependTo(B)
+            * 后面加
+                $(A).append(B)
+                $(B).appendTo(A)
+        b. 外部添加
+            * 前面加
+                $(A).before(B)
+                $(B).insertBefore(A)
+            * 后面加
+                $(A).after(B)
+                $(B).insertAfter(A)
+        c. 移除和清空
+            * remove()
+            * empty()
+        d. 替换
+            $(A).replaceWith(B)
+            $(B).replaceAll(A)
+        e. 克隆
+            注意参数true,加上true会把标签绑定的事件也复制
+    2. 事件
+        a. jQuery绑定事件的方式
+            * 给标签绑定事件的方式
+                1. 在标签上写onclick=函数();
+                2. 在js代码中，标签对象.onclick=function(){}
+            * jQuery绑定事件
+                1. $("选择器).click(function(){...})
+                2. $("选择器").on("click",function(){f();})
+            * 事件委托
+                目的：解决未来的标签如何绑定事件；
+                原理：事件冒泡
+                    如何阻止事件冒泡：e.stopPropagation()
+                语法：$("祖先标签").on("click","选择器",function(){...})

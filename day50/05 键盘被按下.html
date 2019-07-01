@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>键盘被按下</title>
+</head>
+<body>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>姓名</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>Egon</td>
+        <td>
+            <select>
+                <option value="1">上线</option>
+                <option value="2">下线</option>
+                <option value="3">停职</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>Alex</td>
+        <td>
+            <select>
+                <option value="1">上线</option>
+                <option value="2">下线</option>
+                <option value="3">停职</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>Yuan</td>
+        <td>
+            <select>
+                <option value="1">上线</option>
+                <option value="2">下线</option>
+                <option value="3">停职</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>EvaJ</td>
+        <td>
+            <select>
+                <option value="1">上线</option>
+                <option value="2">下线</option>
+                <option value="3">停职</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>Gold</td>
+        <td>
+            <select>
+                <option value="1">上线</option>
+                <option value="2">下线</option>
+                <option value="3">停职</option>
+            </select>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<script src="jquery-3.4.1-main.js"></script>
+<script>
+
+    var flag = false;
+    //当按键被按下的时候，flag设置为true
+    $(window).keydown(function (event) {
+        console.log(event.keyCode);
+        if (event.keyCode === 16) {
+            flag = true;
+        }
+    });
+    //当按键被释放的时候，flag设置为false
+    $(window).keyup(function (event) {
+       if (event.keyCode === 16) {
+           flag = false;
+       }
+    });
+    //select标签的值发生变化的时候
+    $("select").change(function (event) {
+        //如果shift按键被按下，就进入批量编辑模式
+        //shift按键对应的值是16
+        //如果flag=true，即按下了shift，那么进入批量编辑模式
+
+        //1.判断当前select是否被选中
+        var isChecked = $(this).parent().siblings().first().find(":checkbox").prop("checked");
+        if (flag && isChecked) {
+            //进入批量编辑模式
+            //1. 获取当前select选中的值
+            var value = $(this).val();
+            //2. 给其他选中的select设置成和我一样的值
+            //2.1 找到那些被选中行的select
+            $("input:checked").parent().siblings().last();
+
+        }
+    });
+</script>
+</body>
+</html>

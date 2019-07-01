@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>登陆验证</title>
+</head>
+<body>
+<form action="" id="f1">
+    <p>
+        <label>用户名:
+            <input type="text" name="username" id="i1">
+            <span></span>
+        </label>
+    </p>
+    <p>
+        <label>密码:
+            <input type="password" name="password" id="i2">
+            <span></span>
+        </label>
+    </p>
+    <!--设计一个button，如果没有指定类型，那么在点击的时候会触发提交，页面会刷新-->
+    <button type="button" id="b1">登陆</button>
+</form>
+<script src="jquery-3.4.1-main.js"></script>
+<script>
+    $("#b1").click(function () {
+        var $inputEles = $("#f1 input");
+        for (var i = 0; i < $inputEles.length; i++) {
+            var tmp = $inputEles[i];
+            if ($(tmp).val().length === 0) {
+                // 表示它的值为空
+                // console.log($(tmp).parent().text().trim().slice(0, -1));
+                $(tmp).next().text("");
+                var s = $(tmp).parent().text().trim().slice(0, -1);
+                $(tmp).next().text(s + "不能为空").css("color", "red");
+            }
+        }
+    });
+</script>
+</body>
+</html>

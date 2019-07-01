@@ -1,0 +1,9 @@
+二、今日内容
+1. 页面加载完之后才执行的JS代码
+    a. DOM方式
+        windows.onload = function(){}
+    b. jQuery方式
+        ${document}.ready(function(){...})
+2. Bootstrap
+    1. Bootstrap是什么？
+    2.

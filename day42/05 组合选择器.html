@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>css组合选择器</title>
+    <style>
+        /*div span {color: red}*/
+        /*后代选择器*/
+        /*#d1 span {color: red}*/
+        /*儿子选择器*/
+        /*#d2>span {color:red}*/
+        /*毗邻选择器 往下找一个*/
+        /*p+span {color:green}*/
+        /*弟弟选择器 往下找多个 隔开也会找到*/
+        /*p~span {color: green}*/
+
+        /*属性选择器*/
+        /*找到有s14属性的标签*/
+        /*div[s14] {color: red}*/
+        /*input[type='text'] {border: 1px solid red}*/
+
+        /*组合选择器，两者找到内容一致*/
+        /*p>span,p+span {color: blue}*/
+        /*找d1下面的有c1的标签*/
+        #d1 span.c1 {color: red}
+    </style>
+</head>
+<body>
+
+<div id="d1">
+    <div id="d2">
+        <span>span1</span>
+        <p>
+            <span class="c1">span2</span>
+        </p>
+    </div>
+</div>
+<span>p上面的span</span>
+<p>外面的p</p>
+<span>p下面的span</span>
+<span>p下面的span2</span>
+
+<hr>
+<div s14="feichanghao">div</div>
+<div s14="hahaha">div</div>
+
+<hr>
+<input type="text">
+<input type="password">
+
+</body>
+</html>

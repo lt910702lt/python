@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>左侧菜单作业</title>
+    <style>
+        .menu {
+            width: 100px;
+            border: 1px solid darkgrey;
+        }
+
+        .item-title {
+            height: 30px;
+            line-height: 30px;
+            background-color: steelblue;
+            color: white;
+            text-align: center;
+            border-bottom: 1px solid white;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="menu">
+    <div class="item">
+        <div class="item-title">菜单1</div>
+        <div class="item-body hide">
+            <div>内容1</div>
+            <div>内容2</div>
+            <div>内容3</div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="item-title">菜单2</div>
+        <div class="item-body hide">
+            <div>内容1</div>
+            <div>内容2</div>
+            <div>内容3</div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="item-title">菜单3</div>
+        <div class="item-body hide">
+            <div>内容1</div>
+            <div>内容2</div>
+            <div>内容3</div>
+        </div>
+    </div>
+</div>
+<script src="jquery-3.4.1-main.js"></script>
+<script>
+    var $titleEles = $(".item-title");
+    for (var i = 0; i < $titleEles.length; i++) {
+        $titleEles[i].onclick = function () {
+            //把自己的hide属性去掉
+            $(this).next().toggleClass("hide");
+            //把其他item-body的hide属性加上
+            $(this).parent().siblings().find(".item-body").addClass("hide");
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>阻止事件的执行</title>
+</head>
+<body>
+<form>
+    <input type="text" id="i2">
+    <input type="submit" id="i1">
+</form>
+<script src="jquery-3.4.1-main.js"></script>
+<script>
+    //绑定i1事件
+    $("#i1").click(function (event) {
+        alert("弹出框");
+        //如果没有内容，则不执行默认刷新操作
+        //1. 获取输入框的值
+        var value = $("#i2").val();
+        if (value.length === 0) {
+            // event.preventDefault();
+            return false;
+        }
+    });
+</script>
+</body>
+</html>

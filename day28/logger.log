@@ -1,0 +1,10 @@
+2019-05-23 15:47:37,196 - root - DEBUG - debug message
+2019-05-23 15:47:37,196 - root - INFO - info message
+2019-05-23 15:47:37,196 - root - WARNING - warning message
+2019-05-23 15:47:37,196 - root - ERROR - error message
+2019-05-23 15:47:37,196 - root - CRITICAL - critical message
+2019-05-23 15:47:49,846 - root - DEBUG - debug message
+2019-05-23 15:47:49,846 - root - INFO - 普通级别的信息
+2019-05-23 15:47:49,846 - root - WARNING - warning message
+2019-05-23 15:47:49,846 - root - ERROR - error message
+2019-05-23 15:47:49,846 - root - CRITICAL - critical message

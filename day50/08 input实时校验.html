@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>实时校验</title>
+</head>
+<body>
+<input type="text" id="i1">
+<script src="jquery-3.4.1-main.js"></script>
+<script>
+    //input框失去焦点时触发
+    // $("#i1").blur(function () {
+    //     console.log($(this).val())
+    // });
+
+    //input框变化实时触发
+    $("#i1").on("input",function () {
+        console.log($(this).val())
+    })
+</script>
+</body>
+</html>
