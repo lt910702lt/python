@@ -1,0 +1,159 @@
+day59 2019-07-09
+
+1. 内容回顾
+    1. 课前练习，常用的内置模块
+    2. 昨日内容
+        1. web框架的原理
+            socket服务端，收发的消息都是按照HTTP协议的格式
+            socket客户端，浏览器
+        2. HTTP协议
+            请求 浏览器给服务端发消息叫请求（request）
+            响应 服务端给浏览器回消息叫响应（response）
+            请求方法
+                GET/POST
+            版本号：HTTP/1.1
+            默认端口号：
+                HTTP：80
+                HTTPS：443
+            ...
+        3. Python Web框架分类
+            a. 收发socket消息、按照HTTP协议解析消息的
+            b. 字符串替换，用来实现动态网页的
+            c. 业务逻辑
+
+            1. 自己实现a,b,c
+                tornado
+            2. 自己实现b和c，使用第三方的a
+                Django
+            3. 自己实现c，使用第三方的a和b
+                Flask
+            4 Django
+                1. Django的版本
+                   LTS版本  Long Team Support
+                2. 安装
+                    pip install django==1.11.11
+                    pip install django==1.11.11 -i https://pypi.tuna.tsinghua.edu.cn/simple
+                3. 创建Django项目
+                    1. 命令行
+                        django-admin startproject mysite
+                    2. PyCharm
+                4. 启动
+                    1. 命令行
+                        1. 进入项目的根目录
+                        2. 执行：python manage.py runserver 127.0.0.1:8000
+                    2. PyCharm
+                        1. 点绿色三角
+                        2. 前提是左侧框框中的内容和项目名一致
+                5. 目录结构
+                mysite
+                    mysite
+                        __init__.py -- 初始化相关
+                        setting.py  -- 项目配置文件
+                        urls.py     -- 路径和函数的对应关系
+                        wsgi.py     -- socket相关
+                    static          -- 项目的静态文件（/css/js/img..）
+                    templates       -- HTML文件
+                    manage.py       -- 项目入口文件
+                    db.sqlite3      -- 文件数据库
+                6. 配置文件
+                    1. setting.py
+                        BASE_DIR
+                        TEMPLATES -> DIRS  --  HTML配置
+                        DATABASE    -- 数据库
+                        STATIC_URL  -- 静态文件的别名
+                        STATICFILES_DIRS    -- 静态文件实际存储路径（默认不存在）
+                        STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+
+
+
+
+2. 今日内容
+    1. form表单提交数据的三个要素
+        1. form标签必须要有action和method属性
+        2. 所有获取用户输入的标签必须放在form表单中，必须要有name属性
+        3. 必须要有submit按钮
+    2. Django基础必会三件套
+        from django.shortcuts import HttpResponse,render,redirect
+        1. HttpResponse
+            返回一个指定的字符串
+        2. render
+            返回一个HTML文件
+        3. redirect
+            跳转到一个指定的网址
+    3. request相关的属性
+        1. request.method   --> 返回请求的方法（全大写）
+        2. request.GET      --> 获取URL里面的参数
+        3. request.POST     --> post提交的数据，类似于字典的数据
+    4. Django的模板语言
+        {{ 变量名 }}
+    5. 程序连mysql
+        使用pymysql模块
+            1. 导入pymysql模块
+            2. 创建mysql连接
+            3. 获取一个执行命令的游标
+            4. 用游标去执行SQL语句
+            5. 获取SQL语句的执行结果
+            6. 关闭游标
+            7. 关闭连接
+        通过ORM对象模型来管理：
+            创建一种工具  帮你翻译SQL语句   --> ORM（Object Relationship Model）
+
+            优点：
+                1. 开发效率高
+                2. 开发不用直接写SQL语句
+
+            缺点：
+                1. 执行效率低
+
+
+            ORM          DB
+
+            类    <-->   数据表
+            属性  <-->   字段
+            对象  <-->   数据行
+
+            以后就不会再想写SQL语句了。
+
+    6. Django项目app  --> 项目中又分了一级python包，不同的功能放到不同的包里面
+        1. 创建app
+             django-admin startapp app01
+        2. 告诉django创建了app01的应用
+            在settings.py中的INSTALLED_APPS列表里添加：
+                'app01.apps.App01Config'    -- 完整的写法
+                'app01'                     -- 简写，不建议
+    7. Django中ORM的使用
+        1. 用处
+            1. 操作数据表
+            2. 操作数据行
+        2. 使用
+            1. 手动创建一个数据库
+                create database mysite;
+            2. 告诉django连哪个数据库
+                'default': {
+                    'ENGINE': 'django.db.backends.mysql',
+                    'NAME': 'mysite',
+                    'HOST': '192.168.1.244',
+                    'PORT': '3306',
+                    'USER': 'root',
+                    'PASSWORD': 'ABc.123456'
+                }
+        3. 用什么连数据库？
+            利用第三方的包，比如第三方包：pymysql和MySQLdb(django默认，但只支持到2)
+                1. pymysql
+                    在mysite/__init__.py文件写入
+                    import pymysql
+                    pymysql.install_as_MySQLdb()
+        4. 在app/modeles.py文件中创建类
+            类必须继承models.Model
+        5. 两个命令
+            1. python manage.py makemigrations --> 找个小本本，记录models.py文件变更
+            2. python manage.py migrate        --> 将变更记录翻译为SQL,并交由数据库执行
+    8. ORM查询
+        User.objects.filter(email='',pwd='')
+
+3. 今天作业
+    1. 课上ORM版登陆联系
+    2. 图书管理系统
+        1. 有出版社、作者、书
+        2. 设计表结构
+

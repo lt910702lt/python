@@ -1,0 +1,86 @@
+day58 2019-07-08
+
+1. 内容回顾
+    1. 课前练习题
+    2. 前面内容复习
+        1. MySQL
+            1. SQL语句
+            2. 设计表能力
+            3. 原理
+        2. 前端
+            1. HTML/CSS/JS
+            2. jQuery
+            3. bootStrap
+        3. 并发编程
+            1. 进程
+            2. 线程
+            3. 协程
+            4. IO多路复用
+        4. 网络编程
+            1. socket/socketserver
+            2. 黏包
+        5. 面向对象
+            1. 封装、继承、多态
+        6. 常用模块
+            1. os/sys/time/random/re/json/pickle/hashlib
+            2. collections/functools
+        7. 函数
+            1. 函数（定义/参数/返回值/作用域）
+            2. 迭代器/生成器
+            3. 列表推导式/列表生成式
+                [i for i in range(10)] -- 返回结果
+                (i for i in range(10)) -- 返回对象
+            4. 内置函数
+                1. filter/map
+                2. zip
+                3. sorted
+                4. ...等68个
+            5. 递归
+        8. Python数据类型和内置方法
+        9. 文件操作
+        10. Python基础语法
+
+2. 今日内容
+    1. web框架的原理（90%）
+        1. C/S架构和B/S架构
+            1. C/S客户端模式
+            2. B/S浏览器模式
+        2. 协议
+            1. HTTP 默认端口是80
+            2. HTTPS 默认端口是443
+        3. 浏览器输入URL一回车到返回页面，这之间都经历了什么？
+        4. 请求和响应
+    2. Python中web框架的分类
+        a. 收发socket消息，按照HTTP协议解析消息    --  web服务程序 wsgiref、gunicorn、uWSGI
+
+        b. 字符串替换                              -- web应用程序
+        c. 业务逻辑处理                            -- web应用程序
+
+        1. 自己实现a、b、c
+            tornado
+        2. 自己实现b、c，使用别人的a
+            Django
+        3、实现自己的c，使用别人的a和b
+            Flask
+
+        另一个维度的框架分类：
+            1. Django
+            2. 其他
+
+
+    web服务程序 <--WSGI协议-->  web应用程序
+
+    2. Django安装（10%）
+        1. Django版本介绍
+            1. 注意LTS版本
+        2. 安装
+            1. pip install Django==1.11.11(卸载django:pip uninstall django)
+        3. 创建第一个Django项目
+            1. 命令行创建
+                django-admin startproject 项目名
+            2.PyCharm
+                File -> new Project -> 左侧选第二项，右侧第一项是路径，第二项是选python版本
+                在新的PyCharm窗口打开新建的Django项目
+    3. 作业
+        1. 上午的02-07的例子自己敲一敲，重在理解web框架都做了什么！
+        2. 写一个Django项目，把之前写的Bootstrao登陆页面返回！

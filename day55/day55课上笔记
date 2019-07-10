@@ -1,0 +1,46 @@
+内容回顾：
+    1、数据类型
+        - 整形
+            tinyinit: (-128,127) (0,255)
+            int
+            biginit
+        - 浮点型
+            flot
+            double
+            decimal
+        - 字符
+            char:       0-255
+            varchar:    0-65535
+            test
+        - datetime
+            YYYY-MM-DD HH-MM-SS
+        - enum
+            多选一
+        - set集合
+            多选一或多选多
+    2、约束
+        - not null
+        - default
+        - unique
+        - primary key
+        - auto_increment
+        - foreign key
+今日内容：
+    1、外键
+    2、外键的变种
+        - 一对多或多对一
+        - 多对多
+        - 一对一
+    3、单表的查询
+        - group by
+            select A,c from (select post,max(salary) as c from employee group by post) as A;
+            使用分组：
+                1、先配置sql_mode='ONLY_FULL_GROUP_BY'（mysql5.7貌似默认就有这个）
+                2、分组之后智能查询分组的字段，如果想查询组内的其他字段的信息，必须要借助聚合函数
+                max()
+                min()
+                avg()
+                sum()
+                count()
+
+    4、多表查询

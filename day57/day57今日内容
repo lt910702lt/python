@@ -1,0 +1,9 @@
+jQuery插件的使用：
+
+JS要点：
+
+1、面向对象 protptype 原型
+2、DOM操作（练习） js基础、css、标签嵌套
+
+第一步：安装mysql插件
+    pip3 install pymysql

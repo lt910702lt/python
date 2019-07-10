@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>天气数据测试</title>
+    <script src="jquery-3.4.1-main.js"></script>
+
+</head>
+<body>
+<div>
+    <p></p>
+</div>
+<script>
+    $.ajax({
+        url: 'https://free-api.heweather.net/s6/weather/now?location=chengdu&key=4b3fc8287ed34f5f9162cb7e629a0f07',
+        type:'get',
+        success:function (data) {
+            // console.log(data)
+            var tmp = data.HeWeather6[0].now.tmp
+            $('p').html(tmp)
+        }
+    })
+</script>
+</body>
+</html>
