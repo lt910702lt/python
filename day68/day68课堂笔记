@@ -1,0 +1,79 @@
+day68-20190828
+1.内容回顾
+    1.什么是ORM？
+    2.13条：https://www.cnblogs.com/maple-shaw/articles/9403501.html
+        1. 返回对象列表的
+            all()
+            filter()
+            exclude()
+            order_by()
+            reverse()
+            distinct()  -- 去重
+            values()
+            values_list()
+        2.获取对象的
+            get()
+            first()
+            last()
+        3.返回数字
+            count()
+        4.返回布尔值
+            exists()
+    3.单表中的双下划线
+        id__gt
+        id__lt
+        id__gte
+        id__lte
+
+        id__in = []
+        id__range = [1,4]
+
+        contains = ''
+        icontains = ''
+
+        start_with = ''
+        istart_with = ''
+        endwith = ''
+        iendwith = ''
+
+        isnull = True
+
+        __year
+
+    4.外键的查询
+        正向查询
+            book_obj.publisher  --> 出版社对象
+            book_obj.publisher.id
+            book_obj.publisher_id
+        反向查询
+            publisher_obj.book_set  --> Django封装的关系管理对象
+            publisher_obj.book_set.all()
+
+
+2. 今日内容
+    1. 聚合和分组
+    2. F 和 Q
+    3. 事务
+
+    4. cookie
+        1.cookie
+            是一个保存再浏览器本地的一组键值对
+        2.特性
+            服务器让浏览器进行保存的cookie
+            浏览器有权利是否进行保存
+            再次访问服务器的时候会携带着相应的cookie
+        3.cookie的操作
+            获取：
+                request.COOKIES
+            设置：
+                ret = HttpResponse('xxx')
+                ret.set_cookie(key,value,max-age=5)
+            删除：
+                ret = HttpResponse('xxx')
+                ret.delete_cookie(key)
+        4.用途
+            a.登陆
+            b.投票
+            c.记录浏览习惯
+
+    5. session

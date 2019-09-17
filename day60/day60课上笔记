@@ -1,0 +1,83 @@
+day60 2019-07-10
+
+1. 内容回顾
+    1. 几个问题
+        1. form表单的action
+        2. PyCharm打开Django项目
+        3. PyCharm新建Django项目
+    2. 内容回顾
+        1. form表单提交数据的几个要素
+            1. form表单要有action和method
+            2. 上传内容有name属性
+            3. 需要有submit按钮
+            4. 上传文件要在form里配置属性：enctype="multipart/form-data"，method为post
+        2. Django基础必会三件套
+            from Django.shortcuts import HttpResponse,render,redirect
+            1. HttpResponse('OK')   --> 把字符串的OK转换为二进制，并按照HTTP响应格式要求返回
+            2. render(request,'login.html')  --> 打开文件，读取内容，按照HTTP响应格式返回
+            3. render(reqiest,'login.html',{'key':value})   --> 替换特殊符号
+                {{ key }}   --> value
+            4. redirect('/index/')  --> 在同网不同地址间跳转（返回的是一个重定向的响应）
+            5. redirect('https://www.baidu.com')    --> 访问指定的网址
+        3. request
+            所有和请求相关的数据都封装在这个参数中
+            1. request.method   --> 请求方法（GET/POST）
+            2. request.GET      --> 获取GET方法提交的参数
+            3. request.POST     --> 获取POST提交的数据
+        4. 模板语言（HTML中的特殊符号）
+            {{ name }}  {'name': '闷骚哥'}
+        5. APP（项目中的一个包）
+            1. Django中创建app
+                python manage.py startapp app名
+            2. 注册到Django中
+                setting.py中的INSTALLED_APPS=['app名..',]
+        6. ORM
+            1. ORM的概念
+                ORM      DB
+                类       数据表
+                属性     字段
+                对象     数据行
+            2. Django中ORM的使用
+            五步骤:
+                1.  创建一个数据库
+                2.  setting.py里面添加mysql连接
+                3.  __init__.py里添加import pymysql
+                4.  app/modeles.py里面添加class操作
+                5.  变更命令
+            3. ORM查询语句
+                1. 类名.objects.filter(name='闷骚哥',pwd='123')
+2. 今日内容
+    1. 图书管理系统之出版社的增删改查
+        1. 表结构设计
+            1. 出版社
+                id  name
+            2. 作者
+                id  name
+            3. 书
+                id  title   出版社_id
+            4. 作者_书_关系表
+                id      书_id     作者_id
+    2. ORM版增删改查
+        1.ORM语句
+            1. 类名.objects.all()     -->返回一个列表
+            2. 类名.objects.filter()  -->返回一个列表
+            3. 类名.objects.get()     -->返回一个对象
+
+            4. 类名.objects.create(name='')   -->创建一个对象，返回刚创建的对象
+
+            5. 类名.objects.filter(id=).delete()  -->删除
+
+            6. obj = 类名.objects.get(id='')
+                obj.name = '新值'     -->修改对象的属性（某个字段的值）
+                obj.save()            -->把修改同步到数据库
+    3. Django模板语言
+        1. for循环
+            {% for i in ret %}
+                {{ i }}
+                {{ forloop.conter }}
+                {{ forloop.conter0 }}
+            {% endfor %}
+3. 今日任务
+    1. 把课上的代码自己敲一遍
+    2. 自己独立写一遍
+    3. 用bootstrap样式把页面写好看一点
